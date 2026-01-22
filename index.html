@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Community Safety Project</title>
+</head>
+
+<body>
+
+  <h1>Make Our Streets Safer</h1>
+  <p>Help improve pedestrian safety in our neighborhood.</p>
+
+  <h3>Proposed Improvement</h3>
+  <p>Add a painted crosswalk and warningsign near the park.</p>
+
+  <button onclick="support()">I Support This Change</button>
+  <p id="supportCount">Supporters: 0</p>
+
+  <h3>Report a Safety Issue</h3>
+  <input id="location" placeholder="Location (street name)">
+  <br><br>
+  <textarea id="issue" placeholder="Describe the safety problem"></textarea>
+  <br><br>
+  <button onclick="submitReport()">Submit Report</button>
+
+  <h3>Community Reports</h3>
+  <ul id="reportList"></ul>
+
+  <script>
+    let supporters = 0;
+
+    function support() {
+      supporters++;
+      document.getElementById("supportCount").innerText =
+        "Supporters: " + supporters;
+    }
+
+    function submitReport() {
+      let location = document.getElementById("location").value;
+      let issue = document.getElementById("issue").value;
+
+      if (location === "" || issue === "") return;
+
+      let li = document.createElement("li");
+      li.innerText = location + ": " + issue;
+      document.getElementById("reportList").appendChild(li);
+
+      document.getElementById("location").value = "";
+      document.getElementById("issue").value = "";
+    }
+  </script>
+
+</body>
+
+</html>
+
+<!----let supporters makes them supporter count at zero and also this code is basically for a website that essentially helps people find safe spaces and other spaces for example:>
